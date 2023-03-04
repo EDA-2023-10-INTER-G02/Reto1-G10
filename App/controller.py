@@ -98,8 +98,10 @@ def req_1(control):
     """
     Retorna el resultado del requerimiento 1
     """
-    # TODO: Modificar el requerimiento 1
-    pass
+    impuestos_ordenados = sort(control,4)
+    maximo_cada_año = model.req_1(impuestos_ordenados[0])
+    
+    return maximo_cada_año
 
 
 def req_2(control):

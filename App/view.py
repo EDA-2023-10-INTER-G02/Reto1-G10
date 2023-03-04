@@ -49,7 +49,7 @@ def new_controller(data_type):
 def print_menu():
     print("Bienvenido")
     print("1- Cargar información")
-    print("2- Ejecutar Requerimiento 1")
+    print("2- Listar la actividad económica con mayor total saldo a pagar para todos los años disponibles")
     print("3- Ejecutar Requerimiento 2")
     print("4- Ejecutar Requerimiento 3")
     print("5- Ejecutar Requerimiento 4")
@@ -111,8 +111,11 @@ def print_req_1(control):
     """
         Función que imprime la solución del Requerimiento 1 en consola
     """
-    # TODO: Imprimir el resultado del requerimiento 1
-    pass
+    #  Imprimir el resultado del requerimiento 1
+    respuesta = controller.req_1(control)
+    
+    return respuesta
+
 
 
 def print_req_2(control):
@@ -207,7 +210,8 @@ if __name__ == "__main__":
                 print(tabla)
 
             elif int(inputs) == 2:
-                print_req_1(control)
+                rta = print_req_1(control)
+                print(rta)
 
             elif int(inputs) == 3:
                 print_req_2(control)

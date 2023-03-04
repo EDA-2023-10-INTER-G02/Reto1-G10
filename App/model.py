@@ -52,7 +52,6 @@ def new_data_structs(data_type):
     data_structs = {}
 
     data_structs["data"] = lt.newList(datastructure=data_type, cmpfunction=compare)
-    
 
     return data_structs
 
@@ -120,8 +119,12 @@ def req_1(data_structs):
     """
     Función que soluciona el requerimiento 1
     """
-    # TODO: Realizar el requerimiento 1
-    pass
+    #: Realizar el requerimiento 1
+    
+    diccionario_impuestos = data_structs["elements"]
+    
+    return diccionario_impuestos
+    
 
 
 def req_2(data_structs):
@@ -204,8 +207,7 @@ def cmp_impuestos_by_anio_CAE(impuesto1, impuesto2):
     de lo contrario devuelva falso (False).
     Args:
     impuesto1: información del primer registro de impuestos que incluye el “Año” y el
-    “Código
-    actividad económica”
+    “Código actividad económica”
     impuesto2: información del segundo registro de impuestos que incluye el “Año” y el
     “Código actividad económica”
     """
@@ -245,3 +247,20 @@ def sort(data_structs, sort_type):
         return merg.sort(data_structs["data"], sort_criteria)
     else:
         return quk.sort(data_structs["data"], sort_criteria)
+    
+def cmp_impuestos_saldo_a_pagar(data_1,data_2):
+    year = compare(data_1, data_2, "Año")
+    if year == "equal":
+        return compare(data_1, data_2, "Total saldo a pagar")
+    else:
+        return year
+    
+def sort_criteria2(data_1,data_2):
+    return cmp_impuestos_saldo_a_pagar(data_1,data_2)
+    
+
+    year = compare(data_1, data_2, "Año")
+    if year == "equal":
+        return compare(data_1, data_2, "Total saldo a pagar")
+    else:
+        return year
